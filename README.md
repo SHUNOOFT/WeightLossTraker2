@@ -1,24 +1,44 @@
 # README
+# DB 設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users table
 
-Things you may want to cover:
+| Column             | Type   | Options                   |
+|--------------------|--------|---------------------------|
+| username           | string | null: false               |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
+| target_weight      | string | null: false               |
+| target_date        | string | null: false               |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :daily_weights
+- belongs_to :progress
 
-* Configuration
+## daily_weights table
 
-* Database creation
+| Column         | Type       | Options                        |
+|----------------|------------|--------------------------------|
+| current_date   | string     | null: false                    |
+| current_weight | text       | null: false                    |
+| target_weight  | references | null: false, foreign_key: true |
+| user           | references | null: false, foreign_key: true |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
+- belongs_to :progress
 
-* Services (job queues, cache servers, search engines, etc.)
+## progress_charts table
 
-* Deployment instructions
+| Column         | Type       | Options                        |
+|----------------|------------|--------------------------------|
+| current_date   | references | null: false, foreign_key: true |
+| current_weight | references | null: false, foreign_key: true |
+| target_weight  | references | null: false, foreign_key: true |
+| user           | references | null: false, foreign_key: true |
+### Association
 
-* ...
+- belongs_to :user
+- has_many :daily_weights
