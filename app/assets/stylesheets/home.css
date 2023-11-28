@@ -1,12 +1,51 @@
-body {
-  background-color: #f0f0f0;
-  font-family: Arial, sans-serif;
+header {
+  height: 75px;
+  background-color: #b0c6ec;
+  padding: 10px 0;
+  font-size: 38px;
+  border-radius: 10px; /* 角を丸くする */
 }
 
 h1 {
-  color: #333;
+  color: #fffdfd;
+  display: flex;
 }
 
-p {
-  color: #666;
+h2.subtitle {
+  color: #fffdfd;
+  display: flex;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+  font-size: 30px;
+  margin: 15px;
+  padding: 15px;
+  text-align: right;
+  font-size: 16px;
+}
+
+
+footer {
+  background-color: white;
+  margin: 20px 0;
+  font-size: 60px;
+  white-space: pre-line;
+  text-align: left;
+}
+
+a {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  background-color: #4d99eb; /* ボタンの背景色 */
+  color: #fff; /* ボタンのテキスト色 */
+  border-radius: 25px; /* ボタンの角を丸くする */
+  cursor: pointer;
+
+}
+
+a:hover {
+  text-decoration: underline;
 }

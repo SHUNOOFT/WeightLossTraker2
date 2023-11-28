@@ -1,27 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weight Loss Tracker</title>
-  <!-- ここに必要なスタイルシートを追加 -->
-</head>
-<body>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <%= stylesheet_link_tag 'home', media: 'all' %>
+    <title>Weight Loss Tracker</title>
+  </head>
 
-  <h1>Welcome to Weight Loss Tracker!</h1>
-  <h2 class="subtitle">Track your own weight and check your progress.</h2>
+  <header>
+    <h1>Welcome to Weight Loss Tracker.</h1>
+    <h2 class="subtitle">Track your weight and check your progress.</h2>
+  </header>
 
-  <!-- ログインと新規会員登録のボタン -->
-  <div>
-    <a href="<%= new_user_session_path %>">Login</a>
-    <a href="<%= new_user_registration_path %>">Create Account</a>
-  </div>
+    <!-- ログインと新規会員登録のボタン -->
+  <body>
+    <div>
+      <% if user_signed_in? %>
+        <span>Username： <%= current_user.username %>
+          <ul class="user__info">
+            <li>
+              <a href="<%= edit_user_registration_path %>">Edit Account Information</a>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
+            </li>
+          </ul>
+        </span>
+      <% else %>
+        <a href="<%= new_user_session_path %>">Login</a>
+        <a href="<%= new_user_registration_path %>">Create Account</a>
+      <% end %>
+    </div>
+  </body>
+    <!-- ここにアプリケーションのコンテンツを追加 -->
+  <footer>
+    <div>
+      <%= link_to "Track Your Weight", "#", class: "#" %>
+      <%= link_to "Progress Chart", "#", class: "#" %>
+    </div>
+  </footer>
 
-  <!-- ここにアプリケーションのコンテンツを追加 -->
-  <div>
-    <%= link_to "Track Your Weight", "#", class: "#" %>
-    <%= link_to "Progress Chart", "#", class: "#" %>
-  </div>
-
-</body>
 </html>
