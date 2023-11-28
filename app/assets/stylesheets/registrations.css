@@ -1,4 +1,6 @@
 body {
   background-color: #fffdfd;
-  text-align: left; /* ボタンを右寄せにする */
+  text-align: center; /* ボタンを中央寄せにする */
+  margin-top: 200px;
+  font-size: 25px; /* フォントサイズを変更する */
 }
