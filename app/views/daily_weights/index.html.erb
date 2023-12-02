@@ -1,0 +1,35 @@
+<html>
+  <header>
+    <meta charset="UTF-8">
+    <%= stylesheet_link_tag 'daily_weights', media: 'all' %>
+    <tr>
+      <th>Daily Weight</th>
+    </tr>
+  </header>
+
+  <body>
+    <% @daily_weights.each do |daily_weight| %>
+      <tr>
+        <td><%= daily_weight.current_date %></td>
+        <td><%= daily_weight.current_weight %></td>
+      </tr>
+    <% end %>
+  </body>
+</html>
+
+<%= form_with model: DailyWeight.new, url: daily_weights_path, local: true do |form| %>
+  <div>
+    <%= form.label :current_date, 'Current Date' %>
+    <%= form.date_field :current_date, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :current_weight, 'Current Weight' %>
+    <%= form.text_field :current_weight, required: true %>
+    <span class="input-addon">kg</span>
+  </div>
+
+  <div>
+    <%= form.submit 'Submit', class: 'custom-submit-button' %>
+  </div>
+<% end %>

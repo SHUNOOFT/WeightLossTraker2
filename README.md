@@ -14,30 +14,27 @@
 ### Association
 
 - has_many :daily_weights
-- belongs_to :progress
+- belongs_to :progress_chart
 
 ## daily_weights table
 
 | Column         | Type       | Options                        |
 |----------------|------------|--------------------------------|
-| current_date   | string     | null: false                    |
-| current_weight | text       | null: false                    |
-| target_weight  | references | null: false, foreign_key: true |
+| current_date   | date       | null: false                    |
+| current_weight | string     | null: false                    |
 | user           | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :progress
+- belongs_to :progress_chart
 
 ## progress_charts table
 
-| Column         | Type       | Options                        |
-|----------------|------------|--------------------------------|
-| current_date   | references | null: false, foreign_key: true |
-| current_weight | references | null: false, foreign_key: true |
-| target_weight  | references | null: false, foreign_key: true |
-| user           | references | null: false, foreign_key: true |
+| Column        | Type       | Options                        |
+|---------------|------------|--------------------------------|
+| user          | references | null: false, foreign_key: true |
+| daily_weight  | references | null: false, foreign_key: true |
 ### Association
 
 - belongs_to :user

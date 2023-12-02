@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_many :daily_weights
+  #belongs_to :progress_chart
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :username, :target_weight, :target_date, presence: true
@@ -7,5 +10,9 @@ class User < ApplicationRecord
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください'
+
+  def target_date
+    self[:target_date]
+  end
 
 end
