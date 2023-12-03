@@ -19,6 +19,12 @@ body .custom-submit-button {
   font-size: 25px;
 }
 
+body .back-button {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
 span.input-addon {
   font-size: 22px; /* 任意のサイズに調整 */
 }

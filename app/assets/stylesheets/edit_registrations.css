@@ -1,6 +1,17 @@
+header {
+  height: 50px;
+  background-color: #b0c6ec;
+  padding: 40px 0;
+  font-size: 45px;
+  border-radius: 10px; /* 角を丸くする */
+  margin-top: 30px; 
+}
+
 body {
   background-color: #fffdfd;
-  text-align: center; /* ボタンを中央寄せにする */
-  margin-top: 200px;
-  font-size: 25px; /* フォントサイズを変更する */
+  font-size: 35px; /* フォントサイズを変更する */
+}
+
+body .back-button {
+  font-size: 18px;
 }

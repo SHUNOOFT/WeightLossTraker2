@@ -1,0 +1,22 @@
+<h1>Error</h1>
+
+<% if @daily_weight.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@daily_weight.errors.count, "error") %> prohibited this daily weight from being saved:</h2>
+    <ul>
+      <% @daily_weight.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: @daily_weight, url: daily_weights_path, local: true do |form| %>
+  <div>
+    <%= form.submit 'back', class: 'custom-back-button' %>
+  </div>
+<% end %>
+
+<div>
+  <%= link_to 'Edit Account', edit_user_registration_path, class: 'custom-EditAccount-button' %>
+</div>

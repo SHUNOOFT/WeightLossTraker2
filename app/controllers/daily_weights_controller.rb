@@ -8,7 +8,22 @@ class DailyWeightsController < ApplicationController
 
   def new
     @user = User.new
-    @user.target_weight = 70 
   end
 
+  def create
+    @daily_weight = DailyWeight.new(daily_weight_params)
+  
+    if @daily_weight.save
+      redirect_to root_path
+    else
+      # 保存失敗時の処理
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def daily_weight_params
+    params.require(:daily_weight).permit(:current_weight, :current_date).merge(user_id: current_user.id)
+  end
 end

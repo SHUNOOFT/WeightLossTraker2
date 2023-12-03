@@ -1,6 +1,26 @@
+header {
+  height: 50px;
+  background-color: #b0c6ec;
+  padding: 40px 0;
+  font-size: 55px;
+  border-radius: 10px; /* 角を丸くする */
+  margin-top: 30px; 
+  margin-bottom: 80px;
+}
+
 body {
   background-color: #fffdfd;
-  text-align: center; /* ボタンを中央寄せにする */
-  margin-top: 200px;
-  font-size: 25px; /* フォントサイズを変更する */
+  font-size: 35px; /* フォントサイズを変更する */
+}
+
+
+body .Login-button {
+  margin-top: 20px; 
+  font-size: 20px;
+}
+
+body .back-button {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  font-size: 20px;
 }

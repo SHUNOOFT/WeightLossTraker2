@@ -4,16 +4,7 @@ header {
   padding: 10px 0;
   font-size: 38px;
   border-radius: 10px; /* 角を丸くする */
-}
-
-h1 {
-  color: #fffdfd;
-  display: flex;
-}
-
-h2.subtitle {
-  color: #fffdfd;
-  display: flex;
+  text-align: center;
 }
 
 body {
@@ -35,13 +26,16 @@ footer {
   text-align: left;
 }
 
+footer .app2 {
+  margin-top: -60px; 
+}
+
 a {
   display: inline-block;
   padding: 10px 20px;
   text-decoration: none;
-  background-color: #4d99eb; /* ボタンの背景色 */
+  background-color:  #76a5f6; /* ボタンの背景色 */
   color: #fff; /* ボタンのテキスト色 */
-  border-radius: 25px; /* ボタンの角を丸くする */
   cursor: pointer;
 
 }

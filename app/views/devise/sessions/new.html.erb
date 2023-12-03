@@ -1,4 +1,8 @@
-<h2>Login</h2>
+<html>
+
+  <header>
+    <h2>Login</h2>
+  </header>
 
 <%= stylesheet_link_tag 'sessions', media: 'all' %>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -20,8 +24,13 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Login", class: 'Login-button' %>
+  </div>
+
+  <div class="Back">
+    <%= link_to "Back", :back, class: 'back-button' %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</html>

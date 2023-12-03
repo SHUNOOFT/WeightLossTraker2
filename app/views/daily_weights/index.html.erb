@@ -7,14 +7,6 @@
     </tr>
   </header>
 
-  <body>
-    <% @daily_weights.each do |daily_weight| %>
-      <tr>
-        <td><%= daily_weight.current_date %></td>
-        <td><%= daily_weight.current_weight %></td>
-      </tr>
-    <% end %>
-  </body>
 </html>
 
 <%= form_with model: DailyWeight.new, url: daily_weights_path, local: true do |form| %>
@@ -31,5 +23,9 @@
 
   <div>
     <%= form.submit 'Submit', class: 'custom-submit-button' %>
+  </div>
+
+    <div class="Back">
+    <%= link_to "Back", :back, class: 'back-button' %>
   </div>
 <% end %>

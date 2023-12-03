@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :daily_weights
+  has_many :daily_weights, dependent: :destroy
   #belongs_to :progress_chart
 
   devise :database_authenticatable, :registerable,
