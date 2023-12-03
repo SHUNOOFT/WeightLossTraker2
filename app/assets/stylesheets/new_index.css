@@ -1,0 +1,22 @@
+header {
+  height: 50px;
+  background-color: #b0c6ec;
+  padding: 40px 0;
+  font-size: 60px;
+  border-radius: 10px; /* 角を丸くする */
+  margin-bottom: 100px; 
+  margin-top: 20px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 38px;
+  background-color: #fffdfd;
+  margin-top: 20px;
+}
+
+body .custom-back-button {
+  margin-top: 15px;
+  margin-bottom: 20px;
+  font-size: 30px;
+}

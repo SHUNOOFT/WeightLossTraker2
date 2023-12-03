@@ -1,5 +1,10 @@
-<h1>Error</h1>
+<html>
+  <header>
+    <h1>Error</h1>
+  </header>
 
+  <meta charset="UTF-8">
+  <%= stylesheet_link_tag 'new_index', media: 'all' %>
 <% if @daily_weight.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@daily_weight.errors.count, "error") %> prohibited this daily weight from being saved:</h2>
@@ -20,3 +25,4 @@
 <div>
   <%= link_to 'Edit Account', edit_user_registration_path, class: 'custom-EditAccount-button' %>
 </div>
+</html>
