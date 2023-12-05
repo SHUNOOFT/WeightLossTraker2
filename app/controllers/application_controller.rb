@@ -1,10 +1,5 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :destroy_account, only: [ :destroy]
-
-  def destroy
-    destroy_account
-  end
 
   private
   def destroy_account
