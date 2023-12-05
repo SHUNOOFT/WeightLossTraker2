@@ -13,5 +13,6 @@ body {
 }
 
 body .back-button {
-  font-size: 18px;
+  font-size: 25px;
+  margin-top: 30px;
 }
