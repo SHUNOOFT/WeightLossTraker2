@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
-  delete 'destroy_account', to: 'application#destroy_account', as: :destroy_account
+  devise_for :users, controllers: { registrations: 'registrations' }
+  delete 'destroy_account', to: 'registrations#destroy', as: :destroy_account
   root "home#index"
-  resources :daily_weights do
-
-  end
+  resources :daily_weights
 end
