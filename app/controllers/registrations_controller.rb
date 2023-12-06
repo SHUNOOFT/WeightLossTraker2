@@ -5,21 +5,25 @@ class RegistrationsController < Devise::RegistrationsController
   def destroy
     if current_user.destroy
       sign_out current_user
-      redirect_to root_path, notice: 'Your account has been successfully deleted.'
-    else
-      redirect_to edit_user_registration_path, alert: 'Failed to delete your account.'
-    end
-  end
-
-  def update
-    if current_user.update(user_params)
       redirect_to root_path
     else
       redirect_to edit_user_registration_path
     end
   end
 
+  def update
+    if successfully_updated
+      bypass_sign_in(current_user)  # ユーザーをログイン状態に保つ
+      redirect_to root_path
+    else
+      render 'edit'
+    end
+  end
+
   private
+  def successfully_updated
+    current_user.update(user_params)
+  end
 
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email, :target_weight, :target_date])
@@ -34,6 +38,6 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :target_weight, :target_date)
+    params.require(:user).permit(:email, :password, :password_confirmation, :target_weight, :target_date )
   end
 end

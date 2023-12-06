@@ -79,4 +79,4 @@ group :production do
   gem 'pg'
 end
 
-gem 'devise'
+gem 'devise', '4.9.2'
