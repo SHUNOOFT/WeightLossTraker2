@@ -24,14 +24,13 @@
     </div>
   <% end %>
 
-
-  <% if @daily_weights.present? %>
-    <div>
-      <%= link_to 'Edit Record', edit_daily_weight_path(@daily_weights.first), class: 'edit' %>
-    </div>
-  <% end %>
-
     <div>
       <%= link_to "Back", :back, class: 'back-button' %>
     </div>
+
+<% @daily_weights.order(current_date: :asc).each do |daily_weight| %>
+  <div>
+    <%= link_to "#{daily_weight.current_date} #{daily_weight.current_weight}kg Edit Record", edit_daily_weight_path(daily_weight), class: 'edit' %>
+  </div>
+<% end %>
 </html>

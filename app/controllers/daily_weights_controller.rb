@@ -32,8 +32,15 @@ class DailyWeightsController < ApplicationController
     if @daily_weight.update(daily_weight_params)
       redirect_to root_path
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
+  end
+
+
+  def destroy
+    @daily_weight = DailyWeight.find(params[:id])
+    @daily_weight.destroy
+    redirect_to root_path
   end
 
   private
