@@ -80,3 +80,5 @@ group :production do
 end
 
 gem 'devise', '4.9.2'
+
+gem 'pry'
