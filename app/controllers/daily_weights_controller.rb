@@ -13,9 +13,11 @@ class DailyWeightsController < ApplicationController
 
   def create
     @daily_weight = DailyWeight.new(daily_weight_params)
-  
+
     if @daily_weight.save
-      redirect_to root_path
+      # DailyWeightが正常に保存されたら、ProgressChartを作成
+      current_user.create_progress_chart unless current_user.progress_chart
+      redirect_to root_path, notice: 'Daily weight was successfully created.'
     else
       # 保存失敗時の処理
       render :new, status: :unprocessable_entity

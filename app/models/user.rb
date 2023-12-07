@@ -1,9 +1,10 @@
 class User < ApplicationRecord
   has_many :daily_weights, dependent: :destroy
-  #belongs_to :progress_chart
+  has_one :progress_chart, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
   validates :username, :target_weight, :target_date, presence: true
 
   validates :username, format: { with: /\A[\p{L}\p{N}]*\z/, message: "は英語、日本語、数字で入力してください" }
@@ -14,5 +15,4 @@ class User < ApplicationRecord
   def target_date
     self[:target_date]
   end
-
 end
