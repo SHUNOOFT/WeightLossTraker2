@@ -1,16 +1,31 @@
-<h1>Edit Daily Weight</h1>
+<html>
 
-<%= form_with model: @daily_weight, url: daily_weight_path(@daily_weight), method: :patch, local: true do |form| %>
-  <!-- 編集フォームの内容をここに記述 -->
-  <%= form.label :current_date, 'Current Date' %>
-  <%= form.date_field :current_date, required: true %>
+  <header>
+    <h1>Edit Daily Weight</h1>
+  </header>
 
-  <%= form.label :current_weight, 'Current Weight' %>
-  <%= form.text_field :current_weight, required: true %>
-  <span class="input-addon">kg</span>
+  <body>
+  <meta charset="UTF-8">
+  <%= stylesheet_link_tag 'edit_daily_weight', media: 'all' %>
+  <%= form_with model: @daily_weight, url: daily_weight_path(@daily_weight), method: :patch, local: true do |form| %>
+    <!-- 編集フォームの内容をここに記述 -->
+    <%= form.label :current_date, 'Current Date' %>
+    <%= form.date_field :current_date, required: true %>
 
-  <%= form.submit 'Update Record', class: 'custom-edit-button' %>
-<% end %>
+    <%= form.label :current_weight, 'Current Weight' %>
+    <%= form.text_field :current_weight, required: true %>
+    <span class="input-addon">kg</span>
 
-<!-- データの破棄（destroy）リンク -->
-<%= link_to 'Destroy Record', @daily_weight, method: :delete, data: { confirm: 'Are you sure?' }, class: 'destroy' %>
+    <%= form.submit 'Update Record', class: 'custom-edit-button' %>
+  <% end %>
+
+  <div>
+    <%= link_to 'Destroy Record', @daily_weight, method: :delete, data: { confirm: 'Are you sure?' }, class: 'destroy' %>
+  </div>
+
+  <div>
+    <%= link_to "Back", :back, class: 'back-button' %>
+  </div>
+
+  </body>
+</html>
