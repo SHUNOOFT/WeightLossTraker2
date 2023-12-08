@@ -4,7 +4,8 @@ class ProgressChart < ApplicationRecord
 
 
   def update_chart_data(date, weight)
-    # データを更新するロジックをここに追加
-
+    self.data ||= [] # データが nil の場合は初期化
+    self.data << { date: date, weight: weight }
+    save
   end
 end
