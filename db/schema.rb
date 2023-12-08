@@ -21,9 +21,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_07_120449) do
   end
 
   create_table "progress_charts", charset: "utf8", force: :cascade do |t|
-    t.date "current_date", null: false
-    t.decimal "current_weight", precision: 4, scale: 1, null: false
     t.bigint "user_id", null: false
+    t.json "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_progress_charts_on_user_id"
