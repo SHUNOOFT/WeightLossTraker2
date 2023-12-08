@@ -1,0 +1,20 @@
+header {
+  height: 50px;
+  background-color: #b0c6ec;
+  padding: 40px 0;
+  font-size: 55px;
+  border-radius: 10px; /* 角を丸くする */
+  margin-top: 30px; 
+  margin-bottom: 80px;
+}
+
+.Back {
+  display: flex;
+  justify-content: right;
+  margin-right: 40px; /* 左側のマージンを追加 */
+}
+
+body {
+  background-color: #fffdfd;
+  text-align: center;
+}
