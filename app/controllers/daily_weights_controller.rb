@@ -14,13 +14,16 @@ class DailyWeightsController < ApplicationController
   def create
     @daily_weight = DailyWeight.new(daily_weight_params)
 
-    if @daily_weight.save
-      # DailyWeightが正常に保存されたら、ProgressChartを作成
-      current_user.create_progress_chart unless current_user.progress_chart
-      redirect_to root_path, notice: 'Daily weight was successfully created.'
-    else
-      # 保存失敗時の処理
-      render :new, status: :unprocessable_entity
+    respond_to do |format|
+      if @daily_weight.save
+        # ProgressChartの作成または更新
+        update_or_create_progress_chart(@daily_weight)
+
+        format.html { redirect_to root_path, notice: 'Daily weight was successfully created.' }
+      else
+        # 保存失敗時の処理
+        format.html { render :new }
+      end
     end
   end
 
@@ -53,5 +56,17 @@ class DailyWeightsController < ApplicationController
 
   def set_daily_weight
     @daily_weight = DailyWeight.find(params[:id])
+  end
+
+  def update_or_create_progress_chart(daily_weight)
+    progress_chart = current_user.progress_chart
+
+    if progress_chart.nil?
+      # ProgressChartが存在しない場合は新しく作成
+      progress_chart = current_user.build_progress_chart
+    end
+    # DailyWeightのデータを使ってProgressChartを更新
+    progress_chart.save
+    progress_chart.update_chart_data(daily_weight.current_date, daily_weight.current_weight)
   end
 end

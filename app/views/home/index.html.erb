@@ -34,9 +34,11 @@
     <div class="app1">
       <%= link_to "Track Your Weight", daily_weights_path %>
     </div>
-    <div class="app2">
-      <%= link_to "Progress Chart", progress_charts_path %>
-    </div>
+  <div class="app2">
+    <% if @daily_weight && @daily_weight.id %>
+      <%= link_to "Progress Chart", daily_weight_progress_charts_path(@daily_weight.id) %>
+    <% end %>
+  </div>
   </footer>
 
 </html>

@@ -1,7 +1,10 @@
 class ProgressChart < ApplicationRecord
   belongs_to :user
-  has_many :daily_weights, dependent: :destroy
+  belongs_to :daily_weight
 
-  validates :current_date, presence: true
-  validates :current_weight, presence: true
+
+  def update_chart_data(date, weight)
+    # データを更新するロジックをここに追加
+
+  end
 end
