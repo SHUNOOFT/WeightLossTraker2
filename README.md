@@ -14,7 +14,7 @@
 ### Association
 
 - has_many :daily_weights
-- belongs_to :progress_chart
+- has_one :progress_chart
 
 ## daily_weights table
 

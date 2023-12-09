@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_28_071649) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_07_120449) do
   create_table "daily_weights", charset: "utf8", force: :cascade do |t|
     t.date "current_date", null: false
     t.decimal "current_weight", precision: 4, scale: 1, null: false
@@ -20,11 +20,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_28_071649) do
     t.index ["user_id"], name: "index_daily_weights_on_user_id"
   end
 
-  create_table "users", charset: "utf8mb4", force: :cascade do |t|
+  create_table "progress_charts", charset: "utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.json "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_progress_charts_on_user_id"
+  end
+
+  create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "username", null: false
-    t.string "target_weight", null: false
+    t.decimal "target_weight", precision: 4, scale: 1, null: false
     t.date "target_date", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -36,4 +44,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_28_071649) do
   end
 
   add_foreign_key "daily_weights", "users"
+  add_foreign_key "progress_charts", "users"
 end
