@@ -1,11 +1,18 @@
 <html>
 
+
+    <meta charset="UTF-8">
+    <%= stylesheet_link_tag 'progress_chart', media: 'all' %>
   <header>
     <h1>Progress Chart</h1>
   </header>
 
+  <div class="Back">
+    <%= link_to "Back", :back, class: 'back-button' %>
+  </div>
 
   <body>
+
     <canvas id="progressChart" width="400" height="200"></canvas>
 
     <script>

@@ -8,7 +8,7 @@
   <meta charset="UTF-8">
   <%= stylesheet_link_tag 'edit_registrations', media: 'all' %>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+<%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
       <%= f.label :email %><br />
@@ -57,10 +57,11 @@
 
   <%= form_with model: current_user, url: registration_path(current_user), method: :delete, local: true do |form| %>
     <div>
-      <%= form.submit 'Delete Account', data: { confirm: 'Are you sure?' } %>
+      <%= form.submit 'Delete Account', data: { turbo_confirm: 'Are you sure?' } %>
     </div>
   <% end %>
 
   <%= link_to "Back", :back, class: 'back-button' %>
   </body>
+
 </html>
