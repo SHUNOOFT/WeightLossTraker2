@@ -2,7 +2,9 @@
 
 import "@hotwired/turbo-rails"
 import "controllers"
-
+import "chartkick"
+import "chart.bundle"
+import "chartkick/chart.js"
 
 require("@rails/ujs").start()
 require("turbolinks").start()

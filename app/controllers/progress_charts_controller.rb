@@ -1,9 +1,17 @@
 class ProgressChartsController < ApplicationController
   def index
-    # この部分で、適切な ProgressChart レコードを取得
-    @progress_chart = ProgressChart.find_by(user_id: params[:user_id]) # または他の方法で適切なレコードを取得
+    @progress_chart = ProgressChart.find_by(user_id: params[:user_id])
+    @progress_chart_data = @progress_chart&.data || []
 
-    # JSON 形式でデータを設定
-    @progress_data_json = @progress_chart&.data.to_json
+    # 過去一か月のデータを取得
+    if @progress_chart
+      one_month_ago = Date.today - 1.month
+      chart_data = @progress_chart.data.select { |entry| Date.parse(entry['date']) >= one_month_ago }
+
+      # Chartkickで利用するためのデータ形式に変換
+      @progress_chart_data = chart_data.map { |entry| [entry['date'], entry['weight'].to_f] }.to_h
+    else
+      @progress_chart_data = {}
+    end
   end
 end

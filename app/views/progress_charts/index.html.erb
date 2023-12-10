@@ -1,8 +1,13 @@
 <html>
-
-
-    <meta charset="UTF-8">
-    <%= stylesheet_link_tag 'progress_chart', media: 'all' %>
+<head>
+  <meta charset="UTF-8">
+  <%= stylesheet_link_tag 'progress_chart', media: 'all' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartkick"></script>
+  <script type="module" src="path_to_your_module.js"></script>
+</head>
+<body>
   <header>
     <h1>Progress Chart</h1>
   </header>
@@ -11,38 +16,8 @@
     <%= link_to "Back", :back, class: 'back-button' %>
   </div>
 
-  <body>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <canvas id="myChart" width="400" height="400"></canvas>
-      <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var ctx = document.getElementById('myChart').getContext('2d');
-            var progressData = <%= @progress_data_json.present? ? @progress_data_json.html_safe : '[]' %>;
-
-            var dates = progressData.map(entry => entry.date);
-            var weights = progressData.map(entry => entry.weight);
-
-            var myChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: dates,
-                    datasets: [{
-                        label: '体重',
-                        data: weights,
-                        borderColor: 'rgb(75, 192, 192)',
-                        tension: 0.1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
-        });
-      </script>
-  </body>
-
+  <div class="chart">
+    <%= line_chart @progress_chart_data %>
+  </div>
+</body>
 </html>
