@@ -12,39 +12,37 @@
   </div>
 
   <body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <canvas id="myChart" width="400" height="400"></canvas>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var progressData = <%= @progress_data_json.present? ? @progress_data_json.html_safe : '[]' %>;
 
-    <canvas id="progressChart" width="400" height="200"></canvas>
+            var dates = progressData.map(entry => entry.date);
+            var weights = progressData.map(entry => entry.weight);
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        var ctx = document.getElementById('progressChart').getContext('2d');
-        var chartData = <%= raw @progress_chart_data.to_json %>;
-
-        if (chartData) {
-          new Chart(ctx, {
-            type: 'line',
-            data: {
-              labels: chartData.map(data => data[0]),
-              datasets: [{
-                label: 'Current Weight',
-                data: chartData.map(data => data[1]),
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 2,
-                fill: false
-              }]
-            },
-            options: {
-              scales: {
-                x: {
-                  type: 'linear',
-                  position: 'bottom'
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: '体重',
+                        data: weights,
+                        borderColor: 'rgb(75, 192, 192)',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
                 }
-              }
-            }
-          });
-        }
-      });
-    </script>
+            });
+        });
+      </script>
   </body>
 
 </html>
