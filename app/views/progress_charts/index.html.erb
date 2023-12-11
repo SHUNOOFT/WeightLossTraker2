@@ -14,7 +14,7 @@
   </div>
 
   <div class="chart">
-    <%= line_chart @progress_chart_data %>
+    <%= line_chart @progress_chart_data, library: { scales: { y: { min: @y_min, max: @y_max } } } %>
   </div>
 </body>
 </html>
