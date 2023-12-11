@@ -2,6 +2,7 @@ class DailyWeight < ApplicationRecord
   belongs_to :user
   has_one :progress_chart
 
+  after_save :update_progress_chart
   after_destroy :update_progress_chart
 
   validates :current_date, :current_weight, presence: true
@@ -22,6 +23,6 @@ class DailyWeight < ApplicationRecord
   end
 
   def update_progress_chart
-    user.progress_chart.remove_chart_data(self.current_date) if user.progress_chart
+    user.progress_chart.update_chart_data(self) if user.progress_chart
   end
 end

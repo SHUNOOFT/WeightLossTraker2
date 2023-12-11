@@ -8,11 +8,6 @@ header {
   margin-bottom: 80px;
 }
 
-.Back {
-  display: flex;
-  justify-content: right;
-  margin-right: 40px; /* 左側のマージンを追加 */
-}
 
 body {
   background-color: #fffdfd;

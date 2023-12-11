@@ -1,8 +1,10 @@
+<!DOCTYPE html>
 <html>
-
-
-    <meta charset="UTF-8">
-    <%= stylesheet_link_tag 'progress_chart', media: 'all' %>
+<head>
+  <meta charset="UTF-8">
+  <%= stylesheet_link_tag 'progress_chart', media: 'all' %>
+</head>
+<body>
   <header>
     <h1>Progress Chart</h1>
   </header>
@@ -11,40 +13,8 @@
     <%= link_to "Back", :back, class: 'back-button' %>
   </div>
 
-  <body>
-
-    <canvas id="progressChart" width="400" height="200"></canvas>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        var ctx = document.getElementById('progressChart').getContext('2d');
-        var chartData = <%= raw @progress_chart_data.to_json %>;
-
-        if (chartData) {
-          new Chart(ctx, {
-            type: 'line',
-            data: {
-              labels: chartData.map(data => data[0]),
-              datasets: [{
-                label: 'Current Weight',
-                data: chartData.map(data => data[1]),
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 2,
-                fill: false
-              }]
-            },
-            options: {
-              scales: {
-                x: {
-                  type: 'linear',
-                  position: 'bottom'
-                }
-              }
-            }
-          });
-        }
-      });
-    </script>
-  </body>
-
+  <div class="chart">
+    <%= line_chart @progress_chart_data, library: { scales: { y: { min: @y_min, max: @y_max } } } %>
+  </div>
+</body>
 </html>

@@ -82,3 +82,5 @@ end
 gem 'devise', '4.9.2'
 
 gem 'pry'
+gem 'chartkick'
+gem 'groupdate'
