@@ -18,7 +18,7 @@
       <ul class="user__info">
         <li>
           <%= link_to "Edit Account Information", edit_user_registration_path %>
-          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
         </li>
       </ul>
     <% else %>
