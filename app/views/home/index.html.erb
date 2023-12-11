@@ -1,45 +1,41 @@
 <!DOCTYPE html>
 <html>
-
-    <meta charset="UTF-8">
-    <%= stylesheet_link_tag 'home', media: 'all' %>
-  <head>
-    <title>Weight Loss Tracker</title>
-  </head>
-
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weight Loss Tracker</title>
+  <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
   <header>
     <h1>Welcome to Weight Loss Tracker.</h1>
     <h2 class="subtitle">Track your weight and check your progress.</h2>
   </header>
 
-    <!-- ログインと新規会員登録のボタン -->
-  <body>
-    <div>
-      <% if user_signed_in? %>
-        <span>Username： <%= current_user.username %>
-          <ul class="user__info">
-            <li>
-              <a href="<%= edit_user_registration_path %>">Edit Account Information</a>
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
-            </li>
-          </ul>
-        </span>
-      <% else %>
-        <a href="<%= new_user_session_path %>">Login</a>
-        <a href="<%= new_user_registration_path %>">Create Account</a>
-      <% end %>
-    </div>
-  </body>
-    <!-- ここにアプリケーションのコンテンツを追加 -->
+  <div class="session-links">
+    <% if user_signed_in? %>
+      Username: <%= current_user.username %>
+      <ul class="user__info">
+        <li>
+          <%= link_to "Edit Account Information", edit_user_registration_path %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        </li>
+      </ul>
+    <% else %>
+      <%= link_to "Login", new_user_session_path %>
+      <%= link_to "Create Account", new_user_registration_path %>
+    <% end %>
+  </div>
+
   <footer>
     <div class="app1">
       <%= link_to "Track Your Weight", daily_weights_path %>
     </div>
-  <div class="app2">
-    <% if @daily_weight && @daily_weight.id %>
-      <%= link_to "Progress Chart", daily_weight_progress_charts_path(@daily_weight.id) %>
-    <% end %>
-  </div>
+    <div class="app2">
+      <% if @daily_weight && @daily_weight.id %>
+        <%= link_to "Progress Chart", daily_weight_progress_charts_path(@daily_weight.id) %>
+      <% end %>
+    </div>
   </footer>
-
+</body>
 </html>
