@@ -30,9 +30,8 @@ RSpec.describe DailyWeight, type: :model do
         future_date = @user.target_date + 1.day
         @daily_weight.current_date = future_date
         @daily_weight.valid?
-        expect(@daily_weight.errors[:current_date]).to include("can not be in the future then your target date.If you want to proceed tracking your weight, go to your account information and edit your target weight.")
+        expect(@daily_weight.errors[:current_date]).to include('can not be in the future then your target date.If you want to proceed tracking your weight, go to your account information and edit your target weight.')
       end
-
     end
   end
 end

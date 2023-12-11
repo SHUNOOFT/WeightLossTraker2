@@ -5,7 +5,7 @@ class DailyWeightsController < ApplicationController
   def index
     @daily_weights = current_user.daily_weights.order(current_date: :asc)
   end
-  
+
   def new
     @user = User.new
   end
@@ -34,7 +34,6 @@ class DailyWeightsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-
 
   def destroy
     if @daily_weight.destroy

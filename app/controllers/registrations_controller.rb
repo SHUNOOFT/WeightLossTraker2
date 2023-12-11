@@ -21,6 +21,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   private
+
   def successfully_updated
     current_user.update(user_params)
   end
@@ -38,6 +39,6 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :target_weight, :target_date )
+    params.require(:user).permit(:email, :password, :password_confirmation, :target_weight, :target_date)
   end
 end

@@ -12,20 +12,20 @@ class ProgressChartsController < ApplicationController
     @y_min = 0
     @y_max = 100
 
-    if @progress_chart && @progress_chart.data.any?
-      one_month_ago = Date.today - 1.month
-      chart_data = @progress_chart.data.select { |entry| Date.parse(entry['date']) >= one_month_ago }
+    return unless @progress_chart && @progress_chart.data.any?
 
-      # Chartkickで利用するためのデータ形式に変換
-      @progress_chart_data = chart_data.each_with_object({}) do |entry, hash|
-        hash[entry['date']] = entry['weight'].to_f
-      end
+    one_month_ago = Date.today - 1.month
+    chart_data = @progress_chart.data.select { |entry| Date.parse(entry['date']) >= one_month_ago }
 
-      # 最新の体重を取得してグラフの範囲を設定
-      latest_weight = chart_data.map { |d| d['weight'].to_f }.max
-      weight_range = 5 # 体重の変動幅 +/- 5kg
-      @y_min = latest_weight - weight_range
-      @y_max = latest_weight + weight_range
+    # Chartkickで利用するためのデータ形式に変換
+    @progress_chart_data = chart_data.each_with_object({}) do |entry, hash|
+      hash[entry['date']] = entry['weight'].to_f
     end
+
+    # 最新の体重を取得してグラフの範囲を設定
+    latest_weight = chart_data.map { |d| d['weight'].to_f }.max
+    weight_range = 5 # 体重の変動幅 +/- 5kg
+    @y_min = latest_weight - weight_range
+    @y_max = latest_weight + weight_range
   end
 end
