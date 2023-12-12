@@ -21,25 +21,29 @@ https://weightlosstraker.onrender.com
 アプリケーションを作成した背景:
  多くの人がダイエットと健康維持のために日々努力していますが、体重管理はその中でも特に難しい課題です。短期間の体重変動に一喜一憂することなく、長期的な目標に焦点を当てることが成功への鍵となります。しかし、食事内容や生理的変動により、体重は短期的に予想外の変動を見せることがしばしばあります。このような変動が挫折の原因となり得ることを理解し、私は「Weight Loss Tracker」を開発しました。このアプリケーションは、毎日の体重を簡単に記録し、長期的な増減傾向を把握できるように設計されています。体重の日々の変動をグラフで視覚化することで、一時的な変化に惑わされず、実際の進捗を正確に追跡することが可能です。私の目標は、ユーザーがダイエットを継続し、健康管理を効果的に行えるように支援することです。このアプリケーションが、多くの人の健康維持とダイエット成功の一助となることを願っています。
 
-洗い出した要件や実際のアプリの様子（画像）:
+実際のアプリの様子（画像）:
 ・ホームページ:
- ![ホームページ](https://gyazo.com/3c57e1392b29986f26e86262af95d7d8)
+ ![ホームページ](images/home.jpg)
+
 ・ログイン、アカウント作成機能:
- ![ログイン](https://gyazo.com/242d3127502736856ad905378e7eeaae)
- ![アカウント作成](https://gyazo.com/3ac7c4cd1b4015e10acbbbe09c89552b)
+ ![ログイン](images/login.jpg)
+ ![アカウント作成](images/signup.jpg)
+
 ・アカウント編集: 目標体重と目標期間の修正可能
- ![アカウント編集](https://gyazo.com/dd623ba9fc742cb5e0b0f542e6e83d48)
+ ![アカウント編集](images/edit.jpg)
+
 ・「体重を記録する(Track your weight)」: ユーザーは毎日の体重を簡単に記録できます。また記録内容に誤りがあれば編集、削除ができます。
- ![Track your weight](https://gyazo.com/85bedde5e5039e5bf925ccb213c00bfc)
+ ![Track your weight](images/track_your_weight.jpg)
+
 ・「グラフでの進捗確認(Progress chart)」: 詳細な進捗状況をグラフで確認できます。
- ![Progress chart](https://gyazo.com/81b85e65931dd69d1c356e0fa28bec4d)
+ ![Progress chart](images/progress_chart.jpg)
 ・携帯での表示:
- ![ホームページ](/app/images/phonepic_home.jpg)
- ![Track your weight](/app/images/phonepic_track_your_weight.jpg)
- ![Progress chart](/app/images/phonepic_progress_chart.jpg)
+ ![ホームページ](images/phonepic_home.jpg)
+ ![Track your weight](images/phonepic_track_your_weight.jpg)
+ ![Progress chart](images/phonepic_progress_chart.jpg)
 
 データベース設計:
-![ER図](https://gyazo.com/f01df4c1ba73d59d899f22f0ae9c4b65)
+![ER図](images/ER.jpg)
 
 ## users table
 
@@ -85,6 +89,6 @@ https://weightlosstraker.onrender.com
 データベース: PostgreSQL
 その他: GitHub
 
-工夫したポイント：
+工夫したポイント:
 ・レスポンシブデザイン: スマートフォンやタブレットでも快適に使用できるようにしました。
 ・進捗の確認のしやすさ: 私自身がユーザーであり、体重の管理を日頃から行っている人間だからこそ、シンプルかつ進捗の把握のしやすさを重視いたしました。
