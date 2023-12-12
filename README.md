@@ -23,27 +23,27 @@ https://weightlosstraker.onrender.com
 
 実際のアプリの様子（画像）:
 ・ホームページ:
- ![ホームページ](images/home.jpg)
+ ![ホームページ](app/assets/images/home.jpg)
 
 ・ログイン、アカウント作成機能:
- ![ログイン](images/login.jpg)
- ![アカウント作成](images/signup.jpg)
+ ![ログイン](app/assets/images/login.jpg)
+ ![アカウント作成](app/assets/images/signup.jpg)
 
 ・アカウント編集: 目標体重と目標期間の修正可能
- ![アカウント編集](images/edit.jpg)
+ ![アカウント編集](app/assets/images/edit.jpg)
 
 ・「体重を記録する(Track your weight)」: ユーザーは毎日の体重を簡単に記録できます。また記録内容に誤りがあれば編集、削除ができます。
- ![Track your weight](images/track_your_weight.jpg)
+ ![Track your weight](app/assets/images/track_your_weight.jpg)
 
 ・「グラフでの進捗確認(Progress chart)」: 詳細な進捗状況をグラフで確認できます。
- ![Progress chart](images/progress_chart.jpg)
+ ![Progress chart](app/assets/images/progress_chart.jpg)
 ・携帯での表示:
- ![ホームページ](images/phonepic_home.jpg)
- ![Track your weight](images/phonepic_track_your_weight.jpg)
- ![Progress chart](images/phonepic_progress_chart.jpg)
+ ![ホームページ](app/assets/images/phonepic_home.jpg)
+ ![Track your weight]app/assets/(images/phonepic_track_your_weight.jpg)
+ ![Progress chart](app/assets/images/phonepic_progress_chart.jpg)
 
 データベース設計:
-![ER図](images/ER.jpg)
+![ER図](app/assets/images/ER.jpg)
 
 ## users table
 
