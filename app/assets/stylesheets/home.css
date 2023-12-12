@@ -73,7 +73,10 @@ a:hover {
     white-space: pre-line;
     text-align: center;
   }
-  
+
+  footer .app2 {
+    margin-top: -20px; 
+  }
 
   a {
     display: inline-block;
