@@ -21,27 +21,6 @@ https://weightlosstraker.onrender.com
 アプリケーションを作成した背景:
  多くの人がダイエットと健康維持のために日々努力していますが、体重管理はその中でも特に難しい課題です。短期間の体重変動に一喜一憂することなく、長期的な目標に焦点を当てることが成功への鍵となります。しかし、食事内容や生理的変動により、体重は短期的に予想外の変動を見せることがしばしばあります。このような変動が挫折の原因となり得ることを理解し、私は「Weight Loss Tracker」を開発しました。このアプリケーションは、毎日の体重を簡単に記録し、長期的な増減傾向を把握できるように設計されています。体重の日々の変動をグラフで視覚化することで、一時的な変化に惑わされず、実際の進捗を正確に追跡することが可能です。私の目標は、ユーザーがダイエットを継続し、健康管理を効果的に行えるように支援することです。このアプリケーションが、多くの人の健康維持とダイエット成功の一助となることを願っています。
 
-実際のアプリの様子（画像）:
-・ホームページ:
- ![ホームページ](app/assets/images/home.jpg)
-
-・ログイン、アカウント作成機能:
- ![ログイン](app/assets/images/login.jpg)
- ![アカウント作成](app/assets/images/signup.jpg)
-
-・アカウント編集: 目標体重と目標期間の修正可能
- ![アカウント編集](app/assets/images/edit.jpg)
-
-・「体重を記録する(Track your weight)」: ユーザーは毎日の体重を簡単に記録できます。また記録内容に誤りがあれば編集、削除ができます。
-![Track your weight](app/assets/images/track_your_weight.jpg)
-
-・「グラフでの進捗確認(Progress chart)」: 詳細な進捗状況をグラフで確認できます。
-![Progress chart](app/assets/images/progress_chart.jpg)
-・携帯での表示:
-![ホームページ](app/assets/images/phonepic_home.jpg)
-![Track your weight](app/assets/images/phonepic_track_your_weight.jpg)
-![Progress chart](app/assets/images/phonepic_progress_chart.jpg)
-
 データベース設計:
 ![ER図](app/assets/images/ER.jpg)
 
@@ -92,3 +71,31 @@ https://weightlosstraker.onrender.com
 工夫したポイント:
 ・レスポンシブデザイン: スマートフォンやタブレットでも快適に使用できるようにしました。
 ・進捗の確認のしやすさ: 私自身がユーザーであり、体重の管理を日頃から行っている人間だからこそ、シンプルかつ進捗の把握のしやすさを重視いたしました。
+
+実際のアプリの様子（画像）:
+・ホームページ:
+
+![ホームページ](app/assets/images/home.jpg)
+
+・ログイン、アカウント作成機能:
+
+![ログイン](app/assets/images/login.jpg)
+![アカウント作成](app/assets/images/signup.jpg)
+
+・アカウント編集: 目標体重と目標期間の修正可能
+
+![アカウント編集](app/assets/images/edit.jpg)
+
+・「体重を記録する(Track your weight)」: ユーザーは毎日の体重を簡単に記録できます。また記録内容に誤りがあれば編集、削除ができます。
+
+![Track your weight](app/assets/images/track_your_weight.jpg)
+
+・「グラフでの進捗確認(Progress chart)」: 詳細な進捗状況をグラフで確認できます。
+
+![Progress chart](app/assets/images/progress_chart.jpg)
+
+.携帯での表示:
+
+![ホームページ](app/assets/images/phonepic_home.jpg)
+![Track your weight](app/assets/images/phonepic_track_your_weight.jpg)
+![Progress chart](app/assets/images/phonepic_progress_chart.jpg)
