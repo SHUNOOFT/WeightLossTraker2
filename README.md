@@ -14,8 +14,11 @@ https://weightlosstraker.onrender.com
 
 ## 利用方法:
 ・アカウント作成: 最初にアカウントを作成し、ログインします。
+
 ・体重の記録: 「体重の入力(Track your weight)」ページで毎日の体重を入力します。
+
 ・進捗のグラフ表示: 「グラフでの進捗確認(Progress chart)」を使って、体重の変化をグラフで確認します。この機能は最初の体重入力後にホームページに表示されます。
+
 ・目標の設定: 目標体重と目標期日を設定して、進捗を追跡し管理します。Edit Accountにて目標体重と目標期日は設定変更可能です。
 
 ## アプリケーションを作成した背景:
@@ -70,6 +73,7 @@ https://weightlosstraker.onrender.com
 
 ## 工夫したポイント:
 ・レスポンシブデザイン: スマートフォンやタブレットでも快適に使用できるようにしました。
+
 ・進捗の確認のしやすさ: 私自身がユーザーであり、体重の管理を日頃から行っている人間だからこそ、シンプルかつ進捗の把握のしやすさを重視いたしました。
 
 ## 実際のアプリの様子（画像）:
@@ -94,7 +98,7 @@ https://weightlosstraker.onrender.com
 
 ![Progress chart](app/assets/images/progress_chart.jpg)
 
-.携帯での表示:
+・携帯での表示:
 
 ![ホームページ](app/assets/images/phonepic_home.jpg)
 ![Track your weight](app/assets/images/phonepic_track_your_weight.jpg)
